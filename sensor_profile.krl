@@ -1,6 +1,6 @@
 ruleset sensor_profile {
     meta {
-        name "Sensor Profile"
+        name "Sensor Profile Ruleset"
         description << Ruleset for Sensor Profile >>
         author "Cameron Brown"
     }

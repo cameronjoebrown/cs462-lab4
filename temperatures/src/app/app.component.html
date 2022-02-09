@@ -2,8 +2,19 @@
 <h2>Current Temperature</h2>
 
 <h2>Recent Temperatures</h2>
-<div *ngFor="let temperature of temperatures">
-    {{temperature}}
-</div>
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Temperature</th>
+    </tr>
+    <ng-container *ngFor="let temperature of temperatures">
+        <ng-container *ngFor="let time of timeStamps">
+            <tr>
+                <td>{{ time | date:'MMM d, yyyy h:mm' }}</td>
+                <td>{{ temperature }}</td>
+            </tr>
+        </ng-container>
+    </ng-container>
+</table>
 
 <h2>Threshold Violations</h2>

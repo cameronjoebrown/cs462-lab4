@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
 
@@ -9,14 +10,18 @@ import { ApiService } from './services/api.service';
 export class AppComponent implements OnInit {
   title = 'temperatures';
 
-  temperatures: any;
+  temperatures: string[] = [];
+  timeStamps: Date[] = [];
 
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
       this.api.getTemperatures().subscribe((response: any) => {
-        this.temperatures = response;
-        console.log(this.temperatures);
+        Object.keys(response).forEach(key => {
+          let newDate = new Date(key);
+          this.timeStamps.push(newDate);
+          this.temperatures.push(response[key]);
+        })
       })
   }
 }
