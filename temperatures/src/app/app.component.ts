@@ -10,18 +10,23 @@ import { ApiService } from './services/api.service';
 export class AppComponent implements OnInit {
   title = 'temperatures';
 
-  temperatures: string[] = [];
-  timeStamps: Date[] = [];
+  temperatures: string[];
+  timeStamps: Date[];
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) {
+    this.temperatures = [];
+    this.timeStamps = [];
+  }
 
   ngOnInit(): void {
-      this.api.getTemperatures().subscribe((response: any) => {
-        Object.keys(response).forEach(key => {
-          let newDate = new Date(key);
-          this.timeStamps.push(newDate);
-          this.temperatures.push(response[key]);
-        })
+    this.api.getTemperatures().subscribe((response: any) => {
+      this.temperatures.splice(0, this.temperatures.length);
+      this.timeStamps.splice(0, this.timeStamps.length);
+      Object.keys(response).forEach(key => {
+        let newDate = new Date(key);
+        this.timeStamps.push(newDate);
+        this.temperatures.push(response[key]);
       })
+    })
   }
 }

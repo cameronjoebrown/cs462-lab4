@@ -7,13 +7,11 @@
         <th>Time</th>
         <th>Temperature</th>
     </tr>
-    <ng-container *ngFor="let temperature of temperatures">
-        <ng-container *ngFor="let time of timeStamps">
-            <tr>
-                <td>{{ time | date:'MMM d, yyyy h:mm' }}</td>
-                <td>{{ temperature }}</td>
-            </tr>
-        </ng-container>
+    <ng-container *ngFor="let temperature of temperatures; let i = index">
+        <tr>
+            <td>{{ timeStamps[i] | date:'MMM d, yyyy h:mm' }}</td>
+            <td>{{ temperature }}</td>
+        </tr>
     </ng-container>
 </table>
 
