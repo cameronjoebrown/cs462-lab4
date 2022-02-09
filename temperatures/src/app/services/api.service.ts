@@ -25,6 +25,6 @@ export class ApiService {
   }
 
   getViolations() {
-
+    return this.http.get(this.cloudUrl + '/temperature_store/threshold_violations', this.headerOptions);
   }
 }

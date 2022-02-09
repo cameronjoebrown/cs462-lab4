@@ -13,9 +13,15 @@ export class AppComponent implements OnInit {
   temperatures: string[];
   timeStamps: Date[];
 
+  violations: string[];
+  violationTimeStamps: Date[];
+
+
   constructor(private api: ApiService) {
     this.temperatures = [];
     this.timeStamps = [];
+    this.violations = [];
+    this.violationTimeStamps = [];
   }
 
   ngOnInit(): void {
@@ -26,6 +32,16 @@ export class AppComponent implements OnInit {
         let newDate = new Date(key);
         this.timeStamps.push(newDate);
         this.temperatures.push(response[key]);
+      })
+    })
+
+    this.api.getViolations().subscribe((response: any) => {
+      this.violations.splice(0, this.temperatures.length);
+      this.violationTimeStamps.splice(0, this.timeStamps.length);
+      Object.keys(response).forEach(key => {
+        let newDate = new Date(key);
+        this.violationTimeStamps.push(newDate);
+        this.violations.push(response[key]);
       })
     })
   }
