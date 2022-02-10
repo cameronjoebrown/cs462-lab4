@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  name: string = 'Bob';
+  location: string = 'Location';
+  contactNumber: string = '+14352162134';
+  threshold: string = '72';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  updateProfile():void {
+
   }
 
 }

@@ -1,1 +1,19 @@
-<p>profile works!</p>
+<h1>Profile</h1>
+<div>
+    <span>Current Name: </span>
+    <input type="text" class="form-control" [(ngModel)]="name" />
+</div>
+<div>
+    <span>Location: </span>
+    <input type="text" class="form-control" [(ngModel)]="location" />
+</div>
+<div>
+    <span>Contact Number: </span>
+    <input type="text" class="form-control" [(ngModel)]="contactNumber" />
+</div>
+<div>
+    <label for="threshold">Threshold: </label>
+    <input id="threshold" type="text" class="form-control" [(ngModel)]="threshold" />
+</div>
+
+<button class="button" (click)="updateProfile()">Save Changes</button>

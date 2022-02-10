@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   violations: string[];
   violationTimeStamps: Date[];
 
-
   constructor(private api: ApiService) {
     this.temperatures = [];
     this.timeStamps = [];
