@@ -6,5 +6,10 @@ ruleset sensor_profile {
     }
     rule update_profile {
         select when sensor profile_updated
+        pre {
+            sensor_location = event:attrs{"location"}
+            sensor_name = event:attrs{"name"}
+        }
+
     }
 }
