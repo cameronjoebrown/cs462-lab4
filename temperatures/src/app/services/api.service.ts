@@ -31,4 +31,8 @@ export class ApiService {
   updateProfile(name: string, location: string, phoneNumber: string, thresholdTemp: string) {
 
   }
+
+  getProfileInfo() {
+
+  }
 }
