@@ -9,10 +9,10 @@ ruleset sensor_profile {
     global {
         get_profile_info = function() {
             {
-            "Sensor Name": ent:sensor_name.defaultsTo(""),
-            "Sensor Location": ent:sensor_location.defaultsTo(""),
-            "Phone Number": ent:phone_number.defaultsTo(""),
-            "Temperature Threshold": ent:temp_threshold.defaultsTo("")
+            "name": ent:sensor_name.defaultsTo(""),
+            "location": ent:sensor_location.defaultsTo(""),
+            "number": ent:phone_number.defaultsTo(""),
+            "threshold": ent:temp_threshold.defaultsTo("")
             }
         };
     }

@@ -8,18 +8,28 @@ import {ApiService} from "../services/api.service";
 })
 export class ProfileComponent implements OnInit {
 
-  name: string = 'Bob';
-  location: string = 'Location';
+  name: string = '';
+  location: string = '';
   contactNumber: string = '+14352162134';
-  threshold: string = '72';
+  threshold: string = '';
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.getProfileInfo();
   }
 
-  updateProfile():void {
+  updateProfile(): void {
     this.apiService.updateProfile(this.name, this.location, this.contactNumber, this.threshold);
+  }
+
+  getProfileInfo(): void {
+    this.apiService.getProfileInfo().subscribe((response: any) => {
+      this.name = response.name;
+      this.location = response.location;
+      this.contactNumber = response.number;
+      this.threshold = response.threshold;
+    })
   }
 
 }
