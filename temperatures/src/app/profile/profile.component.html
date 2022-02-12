@@ -1,19 +1,21 @@
-<h1>Profile</h1>
-<div>
+<div class="container-fluid">
+  <h1>Profile</h1>
+  <div>
     <span>Current Name: </span>
     <input type="text" class="form-control" [(ngModel)]="name" />
-</div>
-<div>
+  </div>
+  <div>
     <span>Location: </span>
     <input type="text" class="form-control" [(ngModel)]="location" />
-</div>
-<div>
+  </div>
+  <div>
     <span>Contact Number: </span>
     <input type="text" class="form-control" [(ngModel)]="contactNumber" />
-</div>
-<div>
+  </div>
+  <div>
     <label for="threshold">Threshold: </label>
     <input id="threshold" type="text" class="form-control" [(ngModel)]="threshold" />
-</div>
+  </div>
 
-<button class="button" (click)="updateProfile()">Save Changes</button>
+  <button class="button" (click)="updateProfile()">Save Changes</button>
+</div>

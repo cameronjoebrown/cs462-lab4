@@ -27,4 +27,8 @@ export class ApiService {
   getViolations() {
     return this.http.get(this.cloudUrl + '/temperature_store/threshold_violations', this.headerOptions);
   }
+
+  updateProfile(name: string, location: string, phoneNumber: string, thresholdTemp: string) {
+
+  }
 }

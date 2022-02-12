@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-profile',
@@ -12,13 +13,13 @@ export class ProfileComponent implements OnInit {
   contactNumber: string = '+14352162134';
   threshold: string = '72';
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
   }
 
   updateProfile():void {
-
+    this.apiService.updateProfile(this.name, this.location, this.contactNumber, this.threshold);
   }
 
 }
