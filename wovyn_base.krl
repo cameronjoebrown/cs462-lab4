@@ -8,7 +8,8 @@ ruleset wovyn_base {
                 account_sid = meta:rulesetConfig{"account_sid"}
                 auth_token = meta:rulesetConfig{"auth_token"}
         use module sensor_profile
-        shares lastResponse
+        provides get_current_threshold, get_phone_number
+        shares lastResponse, get_current_threshold, get_phone_number
     }
     global {
         get_current_threshold = function() {
