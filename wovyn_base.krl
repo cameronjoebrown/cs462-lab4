@@ -65,7 +65,7 @@ ruleset wovyn_base {
     rule threshold_notification {
         select when wovyn threshold_violation
         pre {
-            to = toNumber
+            to = ent:toNumber
             sender = "+19402907444"
             message = "It is too hot."
         }
