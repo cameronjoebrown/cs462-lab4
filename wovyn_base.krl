@@ -11,11 +11,15 @@ ruleset wovyn_base {
         shares lastResponse
     }
     global {
-        temperature_threshold = sensor_profile:temperature_threshold;
+        get_current_threshold = function() {
+            ent:temperature_threshold.defaultsTo(sensor_profile:temperature_threshold);
+        };
         lastResponse = function() {
             {}.put(ent:lastTimestamp, ent:lastResponse)
+        };
+        get_phone_number = function() {
+            ent:toNumber.defaultsTo("+14352162134")
         }
-        toNumber = "+14352162134"
     }
     rule process_heartbeat {
         select when wovyn heartbeat
@@ -42,7 +46,7 @@ ruleset wovyn_base {
             raise wovyn event "threshold_violation" attributes {
                 "temperature" : temperature,
                 "timestamp" : timestamp
-            } if temperature > temperature_threshold
+            } if temperature > ent:temperature_threshold
         }
     }
 
@@ -53,8 +57,8 @@ ruleset wovyn_base {
             phone_number = event:attrs{"number"}
         }
         always {
-            temperature_threshold = threshold
-            toNumber = phone_number
+            ent:temperature_threshold := threshold
+            ent:toNumber := phone_number
         }
     }
     /*
