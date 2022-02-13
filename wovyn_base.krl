@@ -62,7 +62,6 @@ ruleset wovyn_base {
             ent:toNumber := phone_number
         }
     }
-    /*
     rule threshold_notification {
         select when wovyn threshold_violation
         pre {
@@ -77,5 +76,4 @@ ruleset wovyn_base {
             ent:lastTimestamp := time:now()
         }
     }
-    */
 }

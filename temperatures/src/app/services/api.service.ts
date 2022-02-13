@@ -40,6 +40,6 @@ export class ApiService {
   }
 
   getProfileInfo() {
-    return this.http.get(this.cloudUrl + '/sensor/get_profile_info', this.headerOptions);
+    return this.http.get(this.cloudUrl + '/sensor_profile/get_profile_info', this.headerOptions);
   }
 }

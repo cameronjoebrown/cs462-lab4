@@ -20,7 +20,9 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(): void {
-    this.apiService.updateProfile(this.name, this.location, this.contactNumber, this.threshold);
+    this.apiService.updateProfile(this.name, this.location, this.contactNumber, this.threshold).subscribe(response => {
+      console.log(response)
+    });
   }
 
   getProfileInfo(): void {
